@@ -193,8 +193,8 @@
     white-space: nowrap;
   }
   .hero-sub {
-    font-size: clamp(15px, 2vw, 19px);
-    color: var(--text-soft);
+    font-size: clamp(14px, 2vw, 19px);
+    color: #FFFFFF;
     max-width: 560px;
     line-height: 1.55;
     margin: 0 auto 36px;
@@ -301,6 +301,7 @@
     border-radius: 8px;
     transition: transform 0.2s ease, border-color 0.2s ease;
     position: relative;
+    text-align: center;
   }
   .stage-card:hover {
     transform: translateY(-4px);
@@ -311,7 +312,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    margin-bottom: 16px;
+    margin: 0 auto 16px;
     box-shadow: 0 2px 8px rgba(45, 37, 32, 0.15);
   }
   .stage-card[data-stage="merope"]   .stage-disc { background: var(--stage-merope); }
@@ -362,12 +363,33 @@
   /* ================== LINEUP ================== */
   .lineup-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(12, 1fr);
     gap: 32px;
     margin-top: 40px;
   }
+  .lineup-grid .lineup-stage:nth-child(-n+4) {
+    grid-column: span 3;
+  }
+  .lineup-grid .lineup-stage:nth-child(n+5) {
+    grid-column: span 4;
+  }
+  @media (max-width: 900px) {
+    .lineup-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .lineup-grid .lineup-stage:nth-child(-n+4),
+    .lineup-grid .lineup-stage:nth-child(n+5) {
+      grid-column: span 1;
+    }
+  }
+  @media (max-width: 560px) {
+    .lineup-grid {
+      grid-template-columns: 1fr;
+    }
+  }
   .lineup-stage {
     padding: 24px 0;
+    text-align: center;
   }
   .lineup-stage-name {
     font-family: 'Liber', 'Manrope', sans-serif;
@@ -426,9 +448,9 @@
   .lineup-members {
     display: block;
     margin-top: 6px;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.55;
     font-style: italic;
   }
   .lineup-aside {
@@ -458,15 +480,16 @@
     margin: 40px auto 0;
   }
   .schedule-block {
-    padding: 28px 32px;
+    padding: 32px 32px;
     margin-bottom: 16px;
     background: var(--cream);
     border-radius: 8px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
+    text-align: center;
   }
   .schedule-block.afterparty {
     background: linear-gradient(135deg, var(--rose) 0%, var(--peach) 100%);
@@ -478,7 +501,7 @@
     letter-spacing: 1px;
   }
   .schedule-detail {
-    text-align: right;
+    text-align: center;
   }
   .schedule-detail .label {
     font-size: 11px;
@@ -716,6 +739,9 @@
       padding: 0 18px 18px;
       font-size: 13px;
     }
+    .partner-venues-list li {
+      text-align: center;
+    }
   }
 
   /* ================== SPONSORS ================== */
@@ -785,29 +811,27 @@
   }
   .partner-venues-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 8px 24px;
+    grid-template-columns: 1fr;
+    gap: 0;
     margin-top: 24px;
-    max-width: 800px;
+    max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+    list-style: none;
+    padding: 0;
   }
   .partner-venues-list li {
     list-style: none;
-    padding: 10px 0 10px 18px;
-    position: relative;
+    padding: 12px 0;
     font-size: 14px;
     color: var(--text-soft);
     border-bottom: 1px dashed var(--sky-dark);
+    text-align: center;
   }
-  .partner-venues-list li::before {
-    content: "·";
-    position: absolute;
-    left: 0;
-    color: var(--rose-deep);
-    font-size: 18px;
-    top: 6px;
+  .partner-venues-list li:last-child {
+    border-bottom: none;
   }
+  
 
   /* ================== LOCAL SUPPORTERS ================== */
   .supporters-block {
@@ -817,22 +841,22 @@
   }
   .supporters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 16px;
     margin-top: 32px;
-    max-width: 640px;
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
   }
   .supporter-card {
-    aspect-ratio: 5 / 3;
+    aspect-ratio: 3 / 1;
     background: var(--cream);
     border: 1px solid var(--sky-dark);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 18px;
+    padding: 18px 24px;
     text-align: center;
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
@@ -918,11 +942,12 @@
     .container { padding: 0 22px; }
     section.block { padding: 64px 0; }
     .hero-top { font-size: 10px; padding: 0 22px; gap: 16px; }
-    .hero-title { font-size: 11vw; letter-spacing: 0; }
+    .hero-title { font-size: 9vw; letter-spacing: 0; }
+    .hero-sub { max-width: 78%; font-size: 14px; line-height: 1.5; }
     .hero-meta-line { padding: 0 16px; font-size: 10px; letter-spacing: 1px; }
     .stage-card { padding: 24px 22px; }
-    .schedule-block { flex-direction: column; align-items: flex-start; }
-    .schedule-detail { text-align: left; }
+    
+    .schedule-detail { text-align: center; }
     .price-grid { grid-template-columns: 1fr; }
     .where-buy { padding: 24px 22px; }
     .afterparty-section { padding: 64px 0; }
@@ -985,7 +1010,7 @@
       <div class="stage-card" data-stage="atlas">
         <div class="stage-disc"></div>
         <div class="stage-name">ATLAS</div>
-        <div class="stage-genre">Jazz</div>
+        <div class="stage-genre">Live Jazz</div>
         <div class="stage-location">Avalon</div>
         <div class="stage-desc">A jazz stage tucked inside Avalon — soft openings as the sun goes down, building into late-night standards and improvisation.</div>
       </div>
@@ -1050,17 +1075,17 @@
     <div class="lineup-grid">
       <div class="lineup-stage">
         <div class="lineup-stage-name">ATLAS</div>
-        <div class="lineup-stage-genre">Jazz · Avalon Live</div>
+        <div class="lineup-stage-genre">Live Jazz · Avalon Live</div>
         <ul class="lineup-list">
           <li>
             <span class="lineup-time">19:30</span>
             <span class="lineup-name">Marios Toumbas Trio</span>
-            <span class="lineup-members">Marios Toumbas — keyboard<br>Eirinaios Koullouras — bass<br>Ioannis Vafeas — drums</span>
+            <span class="lineup-members">Marios Toumbas — Keyboard<br>Eirinaios Koullouras — Bass<br>Ioannis Vafeas — Drums</span>
           </li>
           <li>
             <span class="lineup-time">22:00</span>
             <span class="lineup-name">Ioanna Troullidou Quintet</span>
-            <span class="lineup-members">The Trio joined by Ioanna Troullidou (voice) and Achilleas Tomasides (saxophone)</span>
+            <span class="lineup-members">The Trio joined by Ioanna Troullidou (Voice) and Achilleas Tomasides (Saxophone)</span>
           </li>
         </ul>
       </div>
@@ -1162,7 +1187,7 @@
 
     <div class="schedule-wrap">
       <div class="schedule-block">
-        <div class="schedule-time">6:00 PM – 1:30 AM</div>
+        <div class="schedule-time">6:00PM – 1:30AM</div>
         <div class="schedule-detail">
           <div class="label">Main Festival</div>
           <div class="desc">Seven stages active across the neighborhood. Free entry, all ages, all welcome.</div>
@@ -1170,7 +1195,7 @@
       </div>
 
       <div class="schedule-block afterparty">
-        <div class="schedule-time">1:30 AM – 5:00 AM</div>
+        <div class="schedule-time">1:30AM – 5:00AM</div>
         <div class="schedule-detail">
           <div class="label">Taygeta · After-Party</div>
           <div class="desc">Techno until sunrise at Savino Live. Wristband required.</div>
