@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Celestial Arts &amp; Music Festival · June 13, 2026 · Laiki Geitonia, Larnaka</title>
-<meta name="description" content="Celestial Arts &amp; Music Festival. Seven sisters. Seven stages. One neighborhood. June 13, 2026 in Laiki Geitonia, Larnaka. Free entry · ticketed after-party. 6pm – 4am.">
+<meta name="description" content="Celestial Arts &amp; Music Festival. Seven sisters. Seven stages. One neighborhood. June 13, 2026 in Laiki Geitonia, Larnaka. Free entry · ticketed after-party. 6pm – 5am.">
 <meta property="og:title" content="Celestial Arts &amp; Music Festival">
-<meta property="og:description" content="Seven sisters. Seven stages. One neighborhood. June 13, 2026 · Laiki Geitonia, Larnaka. 6pm – 4am.">
+<meta property="og:description" content="Seven sisters. Seven stages. One neighborhood. June 13, 2026 · Laiki Geitonia, Larnaka. 6pm – 5am.">
 <meta property="og:type" content="website">
 
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -38,7 +38,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Celestial Arts & Music Festival">
-<meta name="twitter:description" content="Seven sisters. Seven stages. One neighborhood. June 13, 2026 · Laiki Geitonia, Larnaka. 6pm – 4am.">
+<meta name="twitter:description" content="Seven sisters. Seven stages. One neighborhood. June 13, 2026 · Laiki Geitonia, Larnaka. 6pm – 5am.">
 <meta name="twitter:image" content="https://celestialfestival.com/og-image.jpg">
 <meta name="twitter:image:alt" content="Celestial Arts & Music Festival · June 13, 2026 · Laiki Geitonia, Larnaka">
 
@@ -744,6 +744,45 @@
     text-decoration: underline;
     text-underline-offset: 3px;
   }    
+  
+  /* ================== LIMITED TICKETS BANNER ================== */
+  .limited-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    margin: 0 auto 28px;
+    background: #417978;
+    border: 1px solid #417978;
+    border-radius: 999px;
+    font-family: var(--font-display, 'Manrope', sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  .limited-icon {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    font-size: 0;
+    animation: limited-pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes limited-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+  @media (max-width: 600px) {
+    .limited-banner {
+      font-size: 11px;
+      padding: 9px 16px;
+      letter-spacing: 1px;
+    }
+  }
+
   /* ================== FAQ ACCORDION ================== */
   .faq-list {
     max-width: 760px;
@@ -1128,9 +1167,9 @@
       <div class="stage-card" data-stage="maia">
         <div class="stage-disc"></div>
         <div class="stage-name">MAIA</div>
-        <div class="stage-genre">Old-school electronica · Main Stage</div>
+        <div class="stage-genre">Old-school electronica</div>
         <div class="stage-location">Savino Sq.</div>
-        <div class="stage-desc">The main stage. A celebration of the records that built the genre — analogue warmth, classic sequences, and the night's biggest crowd moments.</div>
+        <div class="stage-desc">A celebration of the records that built the genre — analogue warmth, classic sequences, and the night's biggest crowd moments.</div>
       </div>
 
       <div class="stage-card" data-stage="pleione">
@@ -1170,7 +1209,7 @@
         <div class="stage-name">TAYGETA</div>
         <div class="stage-genre">Techno · After-Party</div>
         <div class="stage-location">Savino Live</div>
-        <div class="stage-desc">The seventh sister. Doors open at 1:30 am for a ticketed techno after-party that runs through to 4am. Wristbands required for entry.</div>
+        <div class="stage-desc">The seventh sister. Doors open at 1:30 am for a ticketed techno after-party that runs through to 5 am. Wristbands required for entry.</div>
       </div>
     </div>
   </div>
@@ -1202,7 +1241,7 @@
 
       <div class="lineup-stage">
         <div class="lineup-stage-name">MAIA</div>
-        <div class="lineup-stage-genre">Old-school electronica · Main Stage · Savino Sq.</div>
+        <div class="lineup-stage-genre">Old-school electronica · Savino Sq.</div>
         <ul class="lineup-list">
           <li>
             <span class="lineup-time">18:00 – 20:30</span>
@@ -1338,6 +1377,11 @@
     <div class="afterparty-content">
       <h2>The After-Party</h2>
       <p class="subtitle">When the festival ends, Taygeta opens.</p>
+
+      <div class="limited-banner">
+        <span class="limited-icon">●</span>
+        <span class="limited-text">Limited availability · Only 200 tickets</span>
+      </div>
 
       <div class="price-grid">
         <div class="price-card">
